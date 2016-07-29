@@ -1,0 +1,23 @@
+{
+  "name": "aiq-mailer-client",
+  "version": "0.0.1",
+  "description": "Client for aiq-mailer for sending emails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anglingiq/aiq-mailer-client.git"
+  },
+  "author": "Ólafur Ragnar Garðarsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anglingiq/aiq-mailer-client/issues"
+  },
+  "homepage": "https://github.com/anglingiq/aiq-mailer-client#readme",
+  "dependencies": {
+    "request": "^2.74.0",
+    "request-promise": "^4.0.2"
+  }
+}
