@@ -8,12 +8,7 @@ if (!AIQ_MAILER_ENDPOINT) {
     throw new Error('Environment variable for aiq-mailer endpoint not set');
 }
 
-const AIQMailer = (() => {
-
-    return {
-        Mail,
-        getEmails
-    };
+module.exports = (() => {
 
     function Mail(mailId /*Email name*/ , opts) {
         opts = opts || {};
@@ -26,15 +21,13 @@ const AIQMailer = (() => {
         this.recipients = opts.recipients || [];
         this.subject = opts.subject || [];
         this.params = opts.params || null;
-
-        return this;
     }
 
-    Mail.prototype.addRecipient = (r) => {
+    Mail.prototype.addRecipient = function(r) {
         this.recipients.push(r);
     };
 
-    Mail.prototype.addRecipients = (r) => {
+    Mail.prototype.addRecipients = function(r) {
         this.recipients = this.recipients.concat(r);
     };
 
@@ -57,6 +50,8 @@ const AIQMailer = (() => {
         return rp(`${AIQ_MAILER_ENDPOINT}/emails`);
     }
 
+    return {
+        Mail,
+        getEmails
+    };
 })();
-
-module.exports = AIQMailer;
