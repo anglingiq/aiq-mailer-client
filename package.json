@@ -1,6 +1,6 @@
 {
   "name": "aiq-mailer-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Client for aiq-mailer for sending emails",
   "main": "index.js",
   "scripts": {
