@@ -19,7 +19,7 @@ module.exports = (() => {
 
         this.mailId = mailId;
         this.recipients = opts.recipients || [];
-        this.subject = opts.subject || [];
+        this.subject = opts.subject || null;
         this.params = opts.params || null;
     }
 
