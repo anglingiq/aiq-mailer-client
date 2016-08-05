@@ -31,23 +31,29 @@ module.exports = (() => {
         this.recipients = this.recipients.concat(r);
     };
 
-    Mail.prototype.send = () => {
+    Mail.prototype.send = function() {
         let self = this;
         const opts = {
-            uri: `${AIQ_MAILER_ENDPOINT}/emails/${this.mailId}`,
+            uri: `${AIQ_MAILER_ENDPOINT}/emails/${self.mailId}`,
             method: 'POST',
             body: {
                 subject: self.subject,
                 recipients: self.recipients,
                 params: self.params
-            }
+            },
+            json: true
         };
 
         return rp(opts);
     };
 
     function getEmails() {
-        return rp(`${AIQ_MAILER_ENDPOINT}/emails`);
+        const opts = {
+            uri: `${AIQ_MAILER_ENDPOINT}/emails`,
+            json: true
+        };
+
+        return rp(opts);
     }
 
     return {
